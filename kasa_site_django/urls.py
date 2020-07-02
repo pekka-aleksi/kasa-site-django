@@ -20,5 +20,5 @@ from kasa_site_django import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/links/', views.endpoint),
+    path('api/links/', views.links),
 ]

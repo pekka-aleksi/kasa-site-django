@@ -9,7 +9,7 @@ import io
 
 
 @api_view(['GET'])
-def endpoint(request):
+def links(request):
     link_objects = Link.objects.all()
     serialized_objects = LinkSerializer(link_objects, many=True)
     data = serialized_objects.data
@@ -17,3 +17,6 @@ def endpoint(request):
     deserialized_data = JSONParser().parse(io.BytesIO(rendered_data))
 
     return Response(deserialized_data)
+
+
+
