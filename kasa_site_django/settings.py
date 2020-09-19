@@ -14,7 +14,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
     'kasa_site_django.app.SiteConfig'
@@ -93,4 +93,4 @@ USE_TZ = True
 
 #STATIC_ROOT = os.path.join(BASE_DIR, "static")
 #STATICFILE_DIRS = [os.path.join(BASE_DIR, "static"), 'static/']
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
