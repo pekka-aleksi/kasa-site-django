@@ -7,6 +7,7 @@ from kasa_site_django.basepath import *
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # Application definition
+CORS_ALLOW_ALL_ORIGINS = True if DEBUG else False
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -80,7 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Sofia'
+TIME_ZONE = 'Europe/Helsinki'
 
 USE_I18N = True
 
@@ -91,6 +92,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/api/static")
 #STATICFILE_DIRS = [os.path.join(BASE_DIR, "static"), 'static/']
-STATIC_URL = '/static/'
+STATIC_URL = '/api/static/'
