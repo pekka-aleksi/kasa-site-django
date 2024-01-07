@@ -1,0 +1,12 @@
+
+services:
+  backend: # we don't need to expose ports here because we are using docker-compose
+    build: . # we do need to build the backend from the Dockerfile here
+    volumes:
+      - ./db:/setup/db # we need to mount the backend folder to the container
+    ports:
+      - "8080:8000"
+  frontend:
+    build: ../REACT # we do need to build the frontend from the Dockerfile here
+    ports:
+      - "8000:80" # we need to expose the port here because we are using docker-compose
