@@ -1,15 +1,16 @@
-from django.db import models
-from rest_framework.serializers import HyperlinkedModelSerializer
+import django.db.models
+import django.utils.timezone
 
 
+class MyBaseModel(django.db.models.Model):
+    created_at = django.db.models.DateTimeField(default=django.utils.timezone.now)
+    updated_at = django.db.models.DateTimeField(auto_now=True)
 
-class Link(models.Model):
-    link = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    date = models.CharField(max_length=10)
-
-
-class LinkSerializer(HyperlinkedModelSerializer):
     class Meta:
-        fields = ['url', 'link', 'date', 'description']
-        model = Link
+        abstract = True
+
+
+class Link(MyBaseModel):
+    link = django.db.models.CharField(max_length=200)
+    description = django.db.models.CharField(max_length=200)
+    date = django.db.models.CharField(max_length=10)
