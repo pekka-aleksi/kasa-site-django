@@ -1,6 +1,6 @@
 
 services:
-  backend: # we don't need to expose ports here because we are using docker-compose
+  backend:
     build:
       context: . # we do need to build the backend from the Dockerfile here
       dockerfile: Dockerfile

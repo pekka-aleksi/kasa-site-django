@@ -12,5 +12,5 @@ class MyBaseModel(django.db.models.Model):
 
 class Link(MyBaseModel):
     link = django.db.models.CharField(max_length=200)
-    description = django.db.models.CharField(max_length=200)
-    date = django.db.models.CharField(max_length=10)
+    description = django.db.models.CharField(max_length=1024)
+    date = django.db.models.DateTimeField(default=django.utils.timezone.now)

@@ -11,14 +11,5 @@ class LinkViewSet(ReadOnlyModelViewSet):
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
-
-        print(request.META)
-
-        a = {k: v for k, v in request.META.items() if 'HTTP' in k or 'DJANGO' in k or 'REQUEST' in k or 'QUERY' in k or 'REMOTE' in k}
-
-        a.update(serializer.data[0] if len(serializer.data) else {})
-        print("listing")
-        #print(serializer.data)
-
-        retval = rest_framework.response.Response(a)
+        retval = rest_framework.response.Response(serializer.data)
         return retval
