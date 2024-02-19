@@ -1,3 +1,5 @@
+version: '3.9'  # optional since Compose v1.27.0
+
 
 services:
   backend:
@@ -8,9 +10,30 @@ services:
       - ./db:/setup/db # we need to mount the backend folder to the container
     ports:
       - "8080:8000"
+    depends_on:
+      database:
+        condition: service_healthy
   frontend:
     build:
       context: ../REACT # we do need to build the frontend from the Dockerfile here
       dockerfile: ../REACT/Dockerfile
     ports:
       - "8000:80" # we need to expose the port here because we are using docker-compose
+    depends_on:
+      - backend
+  database:
+    image: postgres:latest
+    environment:
+      PGUSER: ${POSTGRES_USER}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+        - "5432:5432"
+    volumes:
+        - ./db:/var/lib/postgresql/data # we need to mount the database folder to the container
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5

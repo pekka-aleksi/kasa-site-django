@@ -13,6 +13,9 @@ RUN pip install -r requirements.txt
 COPY start_script.sh start_script.sh
 RUN chmod +x start_script.sh
 ###
+COPY .my_pgpass .my_pgpass
+COPY .pg_service.conf .pg_service.conf
+COPY .env .env
 COPY manage.py manage.py
 COPY kasa_site_django kasa_site_django
 #USER django

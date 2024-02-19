@@ -16,3 +16,5 @@ build/
 tests/report/
 
 .idea
+.env
+.my_pgpass
