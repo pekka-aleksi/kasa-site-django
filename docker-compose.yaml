@@ -6,6 +6,10 @@ services:
     build:
       context: . # we do need to build the backend from the Dockerfile here
       dockerfile: Dockerfile
+      args:
+        DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}
+        DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
+        DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
     volumes:
       - ./db:/setup/db # we need to mount the backend folder to the container
       - ./kasa_site_django/static/:/setup/static/

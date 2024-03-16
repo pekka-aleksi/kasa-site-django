@@ -1,4 +1,6 @@
 db.sqlite3
+static/
+*.sql
 
 *.egg-info
 *.pot
