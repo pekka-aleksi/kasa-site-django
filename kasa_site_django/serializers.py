@@ -8,5 +8,5 @@ class MyBaseSerializer(rest_framework.serializers.ModelSerializer):
 
 class LinkSerializer(MyBaseSerializer):
     class Meta:
-        fields = ['link', 'date', 'description']
+        fields = ['href', 'text', 'date', 'description']
         model = kasa_site_django.models.Link

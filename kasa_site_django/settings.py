@@ -5,6 +5,9 @@ from kasa_site_django.basepath import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+APPEND_SLASHES = True
 
 # Application definition
 CORS_ALLOW_ALL_ORIGINS = True if DEBUG else False
@@ -32,9 +35,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
 # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
-#CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'kasa_site_django.urls'
 
@@ -56,7 +58,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'kasa_site_django.wsgi.application'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -92,6 +93,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/api/static")
-#STATICFILE_DIRS = [os.path.join(BASE_DIR, "static"), 'static/']
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATICFILE_DIRS = [os.path.join(BASE_DIR, "static"), 'static/']
 STATIC_URL = '/api/static/'

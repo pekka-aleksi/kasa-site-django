@@ -8,8 +8,10 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./db:/setup/db # we need to mount the backend folder to the container
+      - ./kasa_site_django/static/:/setup/static/
     ports:
       - "8080:8000"
+      - "8312:8312"
     depends_on:
       database:
         condition: service_healthy
@@ -37,3 +39,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  # https://volkovlabs.io/blog/nginx-loki-grafana-20230129/
+  # promtail
+  # loki
+  # grafana

@@ -9,6 +9,6 @@ router = SimpleRouter()
 router.register(r'links', views.LinkViewSet, basename='link')
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('api/admin/', admin.site.urls),
 ]
