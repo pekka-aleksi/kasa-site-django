@@ -1,5 +1,6 @@
 import django.db.models
 import django.utils.timezone
+import django_quill.fields
 
 
 class MyBaseModel(django.db.models.Model):
@@ -15,3 +16,7 @@ class Link(MyBaseModel):
     text = django.db.models.CharField(max_length=200)
     description = django.db.models.CharField(max_length=1024)
     date = django.db.models.DateTimeField(default=django.utils.timezone.now)
+
+
+class TIL(MyBaseModel):
+    content = django_quill.fields.QuillField()

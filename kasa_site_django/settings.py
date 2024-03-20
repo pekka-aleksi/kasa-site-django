@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'kasa_site_django.app.SiteConfig'
+    'kasa_site_django.app.SiteConfig',
+    'django_quill'
 ]
 
 MIDDLEWARE = [

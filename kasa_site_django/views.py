@@ -13,3 +13,9 @@ class LinkViewSet(ReadOnlyModelViewSet):
         serializer = self.get_serializer(queryset, many=True)
         retval = rest_framework.response.Response(serializer.data)
         return retval
+
+
+
+class TILViewSet(ReadOnlyModelViewSet):
+    queryset = kasa_site_django.models.TIL.objects.all()
+    serializer_class = kasa_site_django.serializers.TILSerializer

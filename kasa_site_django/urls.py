@@ -7,6 +7,7 @@ from kasa_site_django import views
 
 router = SimpleRouter()
 router.register(r'links', views.LinkViewSet, basename='link')
+router.register(r'tils', views.TILViewSet, basename='til')
 
 urlpatterns = [
     path('api/', include(router.urls)),
